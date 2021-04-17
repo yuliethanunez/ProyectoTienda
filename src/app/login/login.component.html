@@ -1,0 +1,21 @@
+
+	<div class="container-fluid">
+		
+		<form [formGroup]="formLogin" (ngSubmit)="Login()">
+			<h1 class="h3 mb-3 font-weight-normal">Login</h1>
+			<div class="alert alert-danger" role="alert" *ngIf="isError">
+				El usuario o la clave estan mal.
+			</div>
+			<div class="form-group">
+				<label>Correo electronico </label>
+					<input type="text" class="form-control" id="usuario" name="usuario" formControlName="usuario" required>
+			</div>
+
+			<div class="form-group">
+				<label>Contraseña</label>
+					<input type="password" class="form-control" id="clave" name="clave" formControlName="clave" required>
+			</div>
+			<button type="submit" class="btn btn-primary">Enviar</button>
+		</form>
+	</div>
+

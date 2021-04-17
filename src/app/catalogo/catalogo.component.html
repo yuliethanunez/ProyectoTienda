@@ -1,0 +1,58 @@
+	<div class="fondo">
+		<barra-navegacion></barra-navegacion>
+		<div class="container mt-4">
+					
+				<div class="container mt-4 mb-4">
+					<div class="row">
+						<div class="col-12 col-md-9 col-lg-9 mt-3">
+							<h2 class="text-black">Catálogo de productos</h2>
+						</div>
+						<div class="col-12 col-md-3 col-lg-3">
+							<p>¿Qué estas buscando?</p>
+							<input class="form-control" type="text" name="buscadorProductos" placeholder="Buscador de productos" [(ngModel)]="buscadorProductos">
+						</div>
+					</div>
+				</div>
+				
+			
+			<div class="row">
+				<div *ngFor="let producto of productos | buscador:buscadorProductos" class="col-12 col-md-4 col-lg-3">
+					<div class="card-group">
+						<div class="card">
+							<img src="{{producto.imagen}}" class="card-img-top" alt="producto" >
+							<div class="card-body">
+								<h5 class="card-title" id="producto" >{{producto.nombre}}</h5>
+								<p class="card-text">Precio: ${{producto.precio}}</p>
+								<p class="card-text">Unidades disponibles: {{producto.unidades_disponibles}}</p>
+							</div>
+							<div class="card-footer">
+
+								
+
+								<div class="row">
+									<div class="col-4 col-md-4 col-lg-4">
+										<button class="btn btn-primary" (click)="detalleProducto(producto.id)">Ver más</button>	
+									</div>
+
+									<form [formGroup]="formAgregarProducto">
+										<div class="row" >
+											<div class="col-4 col-md-4 col-lg-3">
+												<button class="btn btn-danger" (click)="addProducto(producto)">Añadir</button>
+												
+											</div>
+	
+											<div class="col-4 col-md-4 col-lg-4">
+												<input type="number" class="form-control"  formControlName="cantidadVendida" id="cantidad" min="1" value="1">
+											</div>
+										</div>
+									</form>
+									
+								</div>
+							</div>
+						</div>
+						
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>	

@@ -1,0 +1,25 @@
+<barra-navegacion></barra-navegacion>
+<div class="container">
+    <h2>Carrito de compras</h2>
+
+    <div class="row" *ngFor="let carrito  of productosC">
+        <div class="col-12 col-md-6 col-lg-4">
+            <img src="{{carrito.imagen}}" >
+            <p>Subtotal: ${{carrito["subtotal"]}}</p>
+        </div>
+
+        <div class="col-12 col-md-6 col-lg-4">
+            <p>Nombre: {{carrito["nombre"]}}</p>
+            <p>Unidades: {{carrito["cantidadVendida"]}}</p>
+        </div>
+    </div>
+    
+    <div>
+        <div class="col-12 col-md-6 col-lg-4">
+            <h3>Total:${{totalPrecio}} </h3>
+            <button class="btn btn-primary" (click)="goBack()" >Cancelar</button>
+            <button class="btn btn-primary" (click)="actualizarCatalogo()">Pagar</button>
+        </div>
+    </div>
+
+</div>
